@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans/spring-beans-4.3.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	
+	<!-- 编写bean，名称都是固定，加载hibernate.cfg.xml的配置文件 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+	</bean>
+	
+	<!-- 先配置平台事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 开启事务的注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	
+	<!-- 患者action配置 -->
+	<bean  id="patientAction"  class="com.web.action.PatientAction" scope="prototype">
+		<property name="patientService" ref="patientService"/>
+	</bean>
+	<!-- 患者Service配置 -->
+	<bean id="patientService"  class="com.service.PatientServiceImpl">
+		<property name="patientDao" ref="patientDao"></property>
+	</bean>
+	<!-- 患者dao层 -->
+	<bean id="patientDao" class="com.dao.PatientDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	
+	<!-- 配置登录和医生action -->
+	<bean  id="loginAction"  class="com.web.action.LoginAction" scope="prototype">
+		<property name="doctorService" ref="doctorService"/>
+	</bean>
+	<!-- 医生Service配置 -->
+	<bean id="doctorService"  class="com.service.DoctorServiceImpl">
+		<property name="doctorDao" ref="doctorDao"></property>
+	</bean>
+	<!-- 医生dao层 -->
+	<bean id="doctorDao" class="com.dao.DoctorDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+	<package name="ssh1" extends="struts-default" namespace="/">
+	
+		<!-- 患者信息配置 -->
+		<action name="patient_*" class="patientAction" method="{1}">
+			<result name="success">/jsp/success.jsp</result>
+			<result name="list">/jsp/list.jsp</result>
+			<result name="list2">/jsp/patient/list.jsp</result>
+			<result name="initedit">/jsp/patient/edit.jsp</result>
+			<result name="error">/jsp/patient/error.jsp</result>
+			<result name="check">/jsp/edit.jsp</result>
+			<result name="select">/jsp/list.jsp</result>
+		</action>	
+		<!-- 登录配置 -->
+		<action name="login_*" class="loginAction" method="{1}">
+			<result name="success">/jsp/success.jsp</result>
+			<result name="welcom">main.jsp</result>
+			<result name="ad_err">login.jsp</result>
+			<result name="dc_err">index.jsp</result>
+			<result name="add_init">/jsp/customer/add.jsp</result>
+			<result name="initedit">/jsp/customer/edit.jsp</result>
+			<result name="manag_err">/jsp/error.jsp</result>
+			<result name="save_success">/jsp/customer/add.jsp</result>
+			<result name="dclist">/jsp/customer/list.jsp</result>
+			
+		</action>
+	</package>
+    
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+

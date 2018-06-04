@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	
+	<!-- 配置类和表结构的映射 -->
+	<class name="com.domain.Doctor" table="doctor_user">
+		<!-- 配置id 
+			见到name属性，JavaBean的属性
+			见到column属性，是表结构的字段
+		-->
+		<id name="dc_id" column="dc_id">
+			<!-- 主键的生成策略 native mysql下会自动增长-->
+			<generator class="native"/>
+		</id>
+		
+		<!-- 配置其他的属性 -->
+		<property name="dc_name" column="dc_name"/>
+		<property name="dc_password" column="dc_password"/>
+		
+   	</class>
+	
+</hibernate-mapping>    

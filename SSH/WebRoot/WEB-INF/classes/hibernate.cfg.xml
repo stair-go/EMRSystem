@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>
+<!-- 记住：先配置SessionFactory标签，一个数据库对应一个SessionFactory标签 -->
+	<session-factory>
+		<!-- 必须配置 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///patient</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<!-- 可选配置 -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- 配置C3P0的连接池 -->
+		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		
+		<!-- 不能配置绑定当前的线程的操作 -->
+		
+		<!-- 映射配置文件 -->
+		<mapping resource="com/domain/Doctor.hbm.xml"/>
+		<mapping resource="com/domain/Patient.hbm.xml"/>
+		</session-factory>
+</hibernate-configuration>	

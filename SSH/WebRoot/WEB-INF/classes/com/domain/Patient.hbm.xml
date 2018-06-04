@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	
+	<class name="com.domain.Patient" table="pat_patient">
+		<id name="patient_id" column="patient_id">
+			<generator class="native"/>
+		</id>
+		<property name="patient_name" column="patient_name"/>
+		<property name="admis_time" column="admis_time"/>
+		<property name="patient_gender" column="patient_gender"/>
+		<property name="patient_bq" column="patient_bq"/>
+		<property name="patient_marry" column="patient_marry"/>
+		<property name="patient_address" column="patient_address"/>
+		<property name="patient_date" column="patient_date"/>
+		<property name="patient_workunit" column="patient_workunit"/>
+		<property name="patient_phone" column="patient_phone"/>
+		<property name="patient_people" column="patient_people"/>
+		<property name="patient_level" column="patient_level"/>
+		<property name="patient_remark" column="patient_remark"/>
+		<property name="patient_cure" column="patient_cure"/>
+		<property name="patient_remark2" column="patient_remark2"/>
+		<property name="patient_age" column="patient_age"/>
+		<property name="patient_mz" column="patient_mz"/>
+		<property name="patient_yz" column="patient_yz"/>
+		
+		<property name="patient_brms" column="patient_brms"/>
+		<property name="patient_ysms" column="patient_ysms"/>
+		<property name="patient_zl" column="patient_zl"/>
+		<property name="patient_zdff" column="patient_zdff"/>
+	</class>
+	
+</hibernate-mapping>    
